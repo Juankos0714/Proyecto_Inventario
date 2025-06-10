@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ObraSmart - Gestión Inteligente de Inventario</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <style>
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-hard-hat"></i>
+                ObraSmart
+            </div>
+            <div class="user-menu">
+                <div class="notification-badge">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <i class="fas fa-user-circle" style="font-size: 1.5rem;"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <div class="nav-tabs">
+            <button class="nav-tab active" data-tab="inicio">
+                <i class="fas fa-home"></i>
+                Inicio
+            </button>
+            <button class="nav-tab" data-tab="obras">
+                <i class="fas fa-building"></i>
+                Obras
+            </button>
+            <button class="nav-tab" data-tab="materiales">
+                <i class="fas fa-boxes"></i>
+                Materiales
+            </button>
+            <button class="nav-tab" data-tab="archivos">
+                <i class="fas fa-file-upload"></i>
+                Carga de Archivos
+            </button>
+            <button class="nav-tab" data-tab="ia">
+                <i class="fas fa-brain"></i>
+                IA - Gemini
+            </button>
+            <button class="nav-tab" data-tab="calendario">
+                <i class="fas fa-calendar"></i>
+                Calendario
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Inicio Tab -->
+        <div id="inicio" class="tab-content active">
+            <div class="welcome-section">
+                <h1 class="welcome-title">Bienvenido a ObraSmart</h1>
+                <p class="welcome-subtitle">
+                    Gestiona tus obras de construcción de manera inteligente con nuestra aplicación integrada con IA
+                </p>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="stat-card">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Obras Activas</div>
+                </div>
+                <div class="stat-card secondary">
+                    <div class="stat-number">247</div>
+                    <div class="stat-label">Materiales Registrados</div>
+                </div>
+                <div class="stat-card warning">
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">Alertas Pendientes</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">
+                        <i class="fas fa-tachometer-alt"></i>
+                        Acciones Rápidas
+                    </h2>
+                </div>
+                <div class="quick-actions">
+                    <div class="quick-action" data-action="nueva-obra">
+                        <i class="fas fa-plus-circle"></i>
+                        <h3>Nueva Obra</h3>
+                        <p>Registrar una nueva obra</p>
+                    </div>
+                    <div class="quick-action" data-action="agregar-material">
+                        <i class="fas fa-box"></i>
+                        <h3>Agregar Material</h3>
+                        <p>Añadir nuevo material</p>
+                    </div>
+                    <div class="quick-action" data-action="consultar-ia">
+                        <i class="fas fa-robot"></i>
+                        <h3>Consultar IA</h3>
+                        <p>Obtener recomendaciones</p>
+                    </div>
+                    <div class="quick-action" data-action="cargar-archivo">
+                        <i class="fas fa-upload"></i>
+                        <h3>Cargar Archivo</h3>
+                        <p>Subir presupuesto/cronograma</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Obras Tab -->
+        <div id="obras" class="tab-content">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">
+                        <i class="fas fa-building"></i>
+                        Gestión de Obras
+                    </h2>
+                    <button class="btn btn-primary">
+                        <i class="fas fa-plus"></i>
+                        Nueva Obra
+                    </button>
+                </div>
+                
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label class="form-label">Código de Obra</label>
+                        <input type="text" class="form-input" placeholder="OB-001">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Nombre de la Obra</label>
+                        <input type="text" class="form-input" placeholder="Torre Residencial Central">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Objeto del Contrato</label>
+                        <input type="text" class="form-input" placeholder="Construcción edificio residencial">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Valor del Contrato</label>
+                        <input type="number" class="form-input" placeholder="500000000">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Duración (días)</label>
+                        <input type="number" class="form-input" placeholder="365">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Fecha de Inicio</label>
+                        <input type="date" class="form-input">
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Nombre</th>
+                                <th>Valor</th>
+                                <th>Progreso</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>OB-001</td>
+                                <td>Torre Residencial Central</td>
+                                <td>$500,000,000</td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 45%"></div>
+                                    </div>
+                                    45%
+                                </td>
+                                <td><span class="badge badge-success">Activa</span></td>
+                                <td>
+                                    <button class="btn btn-secondary">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="btn btn-secondary">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>OB-002</td>
+                                <td>Centro Comercial Norte</td>
+                                <td>$750,000,000</td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 78%"></div>
+                                    </div>
+                                    78%
+                                </td>
+                                <td><span class="badge badge-success">Activa</span></td>
+                                <td>
+                                    <button class="btn btn-secondary">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="btn btn-secondary">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Materiales Tab -->
+        <div id="materiales" class="tab-content">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">
+                        <i class="fas fa-boxes"></i>
+                        Gestión de Materiales
+                    </h2>
+                    <button class="btn btn-primary">
+                        <i class="fas fa-plus"></i>
+                        Nuevo Material
+                    </button>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label class="form-label">Código</label>
+                        <input type="text" class="form-input" placeholder="MAT-001">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Nombre del Material</label>
+                        <input type="text" class="form-input" placeholder="Cemento Portland">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Unidad de Medida</label>
+                        <select class="form-input">
+                            <option>Seleccionar unidad</option>
+                            <option>kg</option>
+                            <option>m³</option>
+                            <option>m²</option>
+                            <option>unidad</option>
+                            <option>litro</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Precio Unitario</label>
+                        <input type="number" class="form-input" placeholder="25000">
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Nombre</th>
+                                <th>Unidad</th>
+                                <th>Precio Unitario</th>
+                                <th>Stock</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>MAT-001</td>
+                                <td>Cemento Portland</td>
+                                <td>kg</td>
+                                <td>$25,000</td>
+                                <td>500 kg</td>
+                                <td>
+                                    <button class="btn btn-secondary">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="btn btn-secondary">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>MAT-002</td>
+                                <td>Varilla #4</td>
+                                <td>unidad</td>
+                                <td>$15,000</td>
+                                <td>200 und</td>
+                                <td>
+                                    <button class="btn btn-secondary">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="btn btn-secondary">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Carga de Archivos Tab -->
+        <div id="archivos" class="tab-content">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">
+                        <i class="fas fa-file-upload"></i>
+                        Carga de Archivos
+                    </h2>
+                </div>
+
+                <div class="form-grid">
+                    <div class="card">
+                        <h3>Presupuesto</h3>
+                        <div class="upload-area" id="presupuesto-upload">
+                            <i class="fas fa-file-excel upload-icon"></i>
+                            <p>Arrastra aquí tu archivo de presupuesto (Excel/PDF)</p>
+                            <p style="font-size: 0.875rem; color: var(--text-secondary);">
+                                o haz clic para seleccionar
+                            </p>
+                            <input type="file" id="presupuesto-file" style="display: none;" accept=".xlsx,.xls,.pdf">
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>Programación de Actividades</h3>
+                        <div class="upload-area" id="programacion-upload">
+                            <i class="fas fa-file-alt upload-icon"></i>
+                            <p>Arrastra aquí tu cronograma (Excel/PDF)</p>
+                            <p style="font-size: 0.875rem; color: var(--text-secondary);">
+                                o haz clic para seleccionar
+                            </p>
+                            <input type="file" id="programacion-file" style="display: none;" accept=".xlsx,.xls,.pdf">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Archivos Cargados</h3>
+                    <div class="table-container">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Nombre del Archivo</th>
+                                    <th>Tipo</th>
+                                    <th>Fecha de Carga</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>presupuesto_torre_central.xlsx</td>
+                                    <td>Presupuesto</td>
+                                    <td>2025-06-08</td>
+                                    <td><span class="badge badge-success">Procesado</span></td>
+                                    <td>
+                                        <button class="btn btn-secondary">
+                                            <i class="fas fa-download"></i>
+                                        </button>
+                                        <button class="btn btn-secondary">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- IA Tab -->
+        <div id="ia" class="tab-content">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">
+                        <i class="fas fa-brain"></i>
+                        Asistente IA - Gemini
+                    </h2>
+                </div>
+
+                <div class="form-grid">
+                    <div class="card">
+                        <h3>Análisis de Presupuesto</h3>
+                        <p>La IA analizará tu presupuesto y detectará posibles inconsistencias o mejoras.</p>
+                        <button class="btn btn-primary">
+                            <i class="fas fa-chart-line"></i>
+                            Analizar Presupuesto
+                        </button>
+                    </div>
+
+                    <div class="card">
+                        <h3>Asistente de Logística</h3>
+                        <p>Obtén recomendaciones sobre pedidos y gestión de materiales.</p>
+                        <button class="btn btn-success">
+                            <i class="fas fa-truck"></i>
+                            Consultar Logística
+                        </button>
+                    </div>
+
+                    <div class="card">
+                        <h3>Análisis de Riesgos</h3>
+                        <p>Identifica posibles riesgos en la programación de tu obra.</p>
+<button class="btn btn-warning">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            Analizar Riesgos
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Chat con IA</h3>
+                    <div class="chat-container">
+                        <div class="chat-messages" id="chatMessages">
+                            <div style="padding: 1rem; text-align: center; color: var(--text-secondary);">
+                                ¡Hola! Soy tu asistente de IA. Puedo ayudarte con análisis de presupuestos, 
+                                recomendaciones de materiales, optimización de cronogramas y mucho más.
+                                ¿En qué puedo ayudarte hoy?
+                            </div>
+                        </div>
+                        <div class="chat-input-container">
+                            <input type="text" class="form-input chat-input" 
+                                   placeholder="Escribe tu consulta aquí..." 
+                                   id="chatInput">
+                            <button class="btn btn-primary" id="sendChat">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Calendario Tab -->
+        <div id="calendario" class="tab-content">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">
+                        <i class="fas fa-calendar"></i>
+                        Calendario de Obras
+                    </h2>
+                    <div>
+                        <button class="btn btn-secondary" id="prevMonth">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <span id="currentMonth" style="margin: 0 1rem; font-weight: bold;">
+                            Junio 2025
+                        </span>
+                        <button class="btn btn-secondary" id="nextMonth">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="calendar-grid" id="calendarGrid">
+                    <!-- El calendario se generará dinámicamente con JavaScript -->
+                </div>
+
+                <div class="card" style="margin-top: 1.5rem;">
+                    <h3>Eventos Próximos</h3>
+                    <div class="table-container">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Fecha</th>
+                                    <th>Evento</th>
+                                    <th>Obra</th>
+                                    <th>Tipo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>12 Jun 2025</td>
+                                    <td>Entrega de materiales</td>
+                                    <td>Torre Residencial</td>
+                                    <td><span class="badge badge-success">Entrega</span></td>
+                                </tr>
+                                <tr>
+                                    <td>15 Jun 2025</td>
+                                    <td>Revisión de calidad</td>
+                                    <td>Centro Comercial</td>
+                                    <td><span class="badge badge-warning">Inspección</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+    </script>
+</body>
+</html>
