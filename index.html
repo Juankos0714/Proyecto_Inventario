@@ -19,8 +19,42 @@
                 ObraSmart
             </div>
             <div class="user-menu">
-                <div class="notification-badge">
-                    <i class="fas fa-bell"></i>
+                <div class="notification-container">
+                    <div class="notification-badge" id="notificationBadge">
+                        <i class="fas fa-bell"></i>
+                        <div class="notification-count" id="notificationCount">3</div>
+                    </div>
+                    
+                    <!-- Panel de Notificaciones -->
+                    <div class="notification-panel" id="notificationPanel">
+                        <div class="notification-header">
+                            <div class="notification-title">Notificaciones</div>
+                            <div class="notification-actions">
+                                <button class="btn-icon" id="markAllRead" title="Marcar todas como leídas">
+                                    <i class="fas fa-check-double"></i>
+                                </button>
+                                <button class="btn-icon" id="clearAll" title="Limpiar todas">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="notification-filters">
+                            <div class="filter-chip active" data-filter="all">Todas</div>
+                            <div class="filter-chip" data-filter="unread">Sin leer</div>
+                            <div class="filter-chip" data-filter="success">Éxito</div>
+                            <div class="filter-chip" data-filter="warning">Advertencias</div>
+                            <div class="filter-chip" data-filter="error">Errores</div>
+                        </div>
+                        
+                        <div class="notification-list" id="notificationList">
+                            <!-- Las notificaciones se cargarán aquí dinámicamente -->
+                        </div>
+                        
+                        <div class="notification-footer">
+                            <button class="btn-link" id="viewHistory">Ver historial completo</button>
+                        </div>
+                    </div>
                 </div>
                 <i class="fas fa-user-circle" style="font-size: 1.5rem;"></i>
             </div>
@@ -493,9 +527,26 @@
                 </div>
             </div>
         </div>
+            <div class="demo-container">
+        <h2>Demo - Sistema de Notificaciones</h2>
+        <div class="demo-actions">
+            <button class="btn btn-success" onclick="addNotification('success')">
+                <i class="fas fa-check"></i> Agregar Éxito
+            </button>
+            <button class="btn btn-warning" onclick="addNotification('warning')">
+                <i class="fas fa-exclamation-triangle"></i> Agregar Advertencia
+            </button>
+            <button class="btn btn-danger" onclick="addNotification('error')">
+                <i class="fas fa-times"></i> Agregar Error
+            </button>
+            <button class="btn btn-primary" onclick="addNotification('info')">
+                <i class="fas fa-info"></i> Agregar Info
+            </button>
+        </div>
+    </div>
     </main>
 
-    <script>
+    <script src="app.js">
     </script>
 </body>
 </html>
