@@ -1,5 +1,4 @@
-// storage.js - Sistema de almacenamiento local para ObraSmart
-class DataStorage {
+;class DataStorage {
     constructor() {
         this.storageKeys = {
             obras: 'obrasmart_obras',
@@ -10,6 +9,7 @@ class DataStorage {
         };
         this.initializeStorage();
     }
+    
 
     // Inicializar datos por defecto si no existen
     initializeStorage() {
@@ -426,6 +426,27 @@ class DataStorage {
         };
     }
 
+    /**
+     * Save all data to localStorage
+     * @returns {boolean} True if save was successful
+     */
+    saveAll() {
+        try {
+            // Save each data type
+            this.saveData('obras', this.getData('obras'));
+            this.saveData('materiales', this.getData('materiales'));
+            this.saveData('archivos', this.getData('archivos'));
+            this.saveData('eventos', this.getData('eventos'));
+            this.saveData('configuracion', this.getData('configuracion'));
+            
+            console.log('✅ Todos los datos guardados correctamente');
+            return true;
+        } catch (error) {
+            console.error('Error guardando todos los datos:', error);
+            return false;
+        }
+    }
+    
     // Utilidades privadas
     generateId(prefix, number) {
         return `${prefix}-${String(number).padStart(3, '0')}`;
@@ -451,8 +472,12 @@ class DataStorage {
     }
 }
 
-// Crear instancia global
+window.DataStorage = DataStorage;
+
+// Create global instance AFTER class is defined
 window.dataStorage = new DataStorage();
+
+console.log('📦 Storage.js cargado - Sistema de almacenamiento inicializado');
 
 // Fallback para compatibilidad
 window.DataManager = DataStorage;

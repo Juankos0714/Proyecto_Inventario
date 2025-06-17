@@ -2,6 +2,13 @@
 
 class CalendarioManager {
     constructor() {
+        // Ensure storage is available
+        if (!window.dataStorage) {
+            console.error('Storage not initialized for CalendarioManager');
+            return;
+        }
+        
+        this.storage = window.dataStorage;
         this.calendarGrid = document.getElementById('calendarGrid');
         this.currentMonthElement = document.getElementById('currentMonth');
         this.prevMonthButton = document.getElementById('prevMonth');
@@ -391,18 +398,22 @@ class CalendarioManager {
         const sortedEventos = [...this.eventos].sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
         
         sortedEventos.forEach(evento => {
+            if (!evento) return; // Skip if evento is undefined
+            
             const row = document.createElement('tr');
-            const badgeClass = this.getPriorityBadgeClass(evento.prioridad);
+            // Ensure prioridad exists and has a default value
+            const prioridad = (evento.prioridad || 'media').toLowerCase();
+            const badgeClass = this.getPriorityBadgeClass(prioridad);
             
             row.innerHTML = `
                 <td>${this.formatDisplayDate(evento.fecha)}</td>
                 <td>
-                    ${this.getEventIcon(evento.tipo)} ${evento.titulo}
-                    <br><small style="color: var(--text-muted);">${evento.descripcion}</small>
+                    ${this.getEventIcon(evento.tipo || 'default')} ${evento.titulo || 'Sin título'}
+                    <br><small style="color: var(--text-muted);">${evento.descripcion || 'Sin descripción'}</small>
                 </td>
-                <td>${evento.obra}</td>
+                <td>${evento.obra || 'Sin asignar'}</td>
                 <td>
-                    <span class="badge badge-${badgeClass}">${evento.prioridad.toUpperCase()}</span>
+                    <span class="badge badge-${badgeClass}">${prioridad.toUpperCase()}</span>
                     <span class="badge badge-${evento.completado ? 'success' : 'secondary'}" style="margin-left: 0.5rem;">
                         ${evento.completado ? 'Completado' : 'Pendiente'}
                     </span>

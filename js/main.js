@@ -101,37 +101,41 @@ class MainApp {
     /**
      * Inicializar sistema de almacenamiento
      */
-    async initStorage() {
-        if (typeof window.StorageManager !== 'undefined') {
-            this.modules.storage = new window.StorageManager();
-            await this.modules.storage.init();
+async initStorage() {
+    try {
+        // Usar DataStorage en lugar de StorageManager
+        if (typeof window.DataStorage !== 'undefined') {
+            this.modules.storage = window.dataStorage; // Usa la instancia global ya creada
             window.AppState.modules.storage = this.modules.storage;
+            console.log('✅ Sistema de almacenamiento inicializado');
+        } else {
+            throw new Error('DataStorage no está definido');
         }
+    } catch (error) {
+        console.error('Error inicializando almacenamiento:', error);
     }
+}
 
     /**
      * Cargar datos iniciales necesarios
      */
     async loadInitialData() {
-        try {
-            // Cargar datos de obras
-            const obras = this.modules.storage?.get('obras') || [];
-            window.AppState.obras = obras;
-            
-            // Cargar datos de materiales
-            const materiales = this.modules.storage?.get('materiales') || [];
-            window.AppState.materiales = materiales;
-            
-            // Cargar eventos del calendario
-            const eventos = this.modules.storage?.get('eventos') || [];
-            window.AppState.eventos = eventos;
-            
-            console.log(`📊 Datos cargados: ${obras.length} obras, ${materiales.length} materiales, ${eventos.length} eventos`);
-            
-        } catch (error) {
-            console.error('Error cargando datos iniciales:', error);
+    try {
+        // Verify storage module exists and has required methods
+        if (!this.modules.storage?.getData) {
+            throw new Error('Storage module not properly initialized or missing getData method');
         }
+
+        const obras = this.modules.storage.getData('obras') || [];
+        const materiales = this.modules.storage.getData('materiales') || [];
+        const eventos = this.modules.storage.getData('eventos') || [];
+
+        console.log(`📊 Datos cargados: ${obras.length} obras, ${materiales.length} materiales, ${eventos.length} eventos`);
+    } catch (error) {
+        console.error('Error cargando datos iniciales:', error);
+        throw error;
     }
+}
 
     /**
      * Inicializar todos los módulos de la aplicación
