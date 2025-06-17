@@ -3,12 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ObraSmart - Gestión Inteligente de Inventario</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./style.css">
-    <style>
-
-    </style>
+    <title>ObraSmart - Gestión Inteligente de Obras</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Header -->
@@ -16,134 +13,134 @@
         <div class="header-content">
             <div class="logo">
                 <i class="fas fa-hard-hat"></i>
-                ObraSmart
+                <span>ObraSmart</span>
             </div>
-            <div class="user-menu">
-                <div class="notification-container">
-                    <div class="notification-badge" id="notificationBadge">
-                        <i class="fas fa-bell"></i>
-                        <div class="notification-count" id="notificationCount">3</div>
-                    </div>
-                    
-                    <!-- Panel de Notificaciones -->
-                    <div class="notification-panel" id="notificationPanel">
-                        <div class="notification-header">
-                            <div class="notification-title">Notificaciones</div>
-                            <div class="notification-actions">
-                                <button class="btn-icon" id="markAllRead" title="Marcar todas como leídas">
-                                    <i class="fas fa-check-double"></i>
-                                </button>
-                                <button class="btn-icon" id="clearAll" title="Limpiar todas">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </div>
-                        </div>
-                        
-                        <div class="notification-filters">
-                            <div class="filter-chip active" data-filter="all">Todas</div>
-                            <div class="filter-chip" data-filter="unread">Sin leer</div>
-                            <div class="filter-chip" data-filter="success">Éxito</div>
-                            <div class="filter-chip" data-filter="warning">Advertencias</div>
-                            <div class="filter-chip" data-filter="error">Errores</div>
-                        </div>
-                        
-                        <div class="notification-list" id="notificationList">
-                            <!-- Las notificaciones se cargarán aquí dinámicamente -->
-                        </div>
-                        
-                        <div class="notification-footer">
-                            <button class="btn-link" id="viewHistory">Ver historial completo</button>
-                        </div>
-                    </div>
+            <div class="header-actions">
+                <div class="notification-icon">
+                    <i class="fas fa-bell notification-badge"></i>
                 </div>
-                <i class="fas fa-user-circle" style="font-size: 1.5rem;"></i>
+                <div class="user-profile">
+                    <i class="fas fa-user"></i>
+                    <span>Admin</span>
+                </div>
             </div>
         </div>
     </header>
 
     <!-- Navigation -->
-    <nav class="nav-container">
-        <div class="nav-tabs">
-            <button class="nav-tab active" data-tab="inicio">
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-tab active" data-tab="inicio">
                 <i class="fas fa-home"></i>
-                Inicio
-            </button>
-            <button class="nav-tab" data-tab="obras">
+                <span>Inicio</span>
+            </div>
+            <div class="nav-tab" data-tab="obras">
                 <i class="fas fa-building"></i>
-                Obras
-            </button>
-            <button class="nav-tab" data-tab="materiales">
+                <span>Obras</span>
+            </div>
+            <div class="nav-tab" data-tab="materiales">
                 <i class="fas fa-boxes"></i>
-                Materiales
-            </button>
-            <button class="nav-tab" data-tab="archivos">
-                <i class="fas fa-file-upload"></i>
-                Carga de Archivos
-            </button>
-            <button class="nav-tab" data-tab="ia">
-                <i class="fas fa-brain"></i>
-                IA - Gemini
-            </button>
-            <button class="nav-tab" data-tab="calendario">
+                <span>Materiales</span>
+            </div>
+            <div class="nav-tab" data-tab="calendario">
                 <i class="fas fa-calendar"></i>
-                Calendario
-            </button>
+                <span>Calendario</span>
+            </div>
+            <div class="nav-tab" data-tab="archivos">
+                <i class="fas fa-folder"></i>
+                <span>Archivos</span>
+            </div>
+            <div class="nav-tab" data-tab="ia">
+                <i class="fas fa-robot"></i>
+                <span>Análisis IA</span>
+            </div>
         </div>
     </nav>
 
     <!-- Main Content -->
-    <main class="main-content">
+    <main class="main">
         <!-- Inicio Tab -->
         <div id="inicio" class="tab-content active">
-            <div class="welcome-section">
-                <h1 class="welcome-title">Bienvenido a ObraSmart</h1>
-                <p class="welcome-subtitle">
-                    Gestiona tus obras de construcción de manera inteligente con nuestra aplicación integrada con IA
-                </p>
-            </div>
+            <div class="dashboard">
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card primary">
+                        <div class="stat-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 class="stat-number">5</h3>
+                            <p class="stat-label">Obras Activas</p>
+                        </div>
+                    </div>
+                    <div class="stat-card secondary">
+                        <div class="stat-icon">
+                            <i class="fas fa-boxes"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 class="stat-number">12</h3>
+                            <p class="stat-label">Materiales</p>
+                        </div>
+                    </div>
+                    <div class="stat-card warning">
+                        <div class="stat-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 class="stat-number">8</h3>
+                            <p class="stat-label">Alertas</p>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="dashboard-grid">
-                <div class="stat-card">
-                    <div class="stat-number">5</div>
-                    <div class="stat-label">Obras Activas</div>
-                </div>
-                <div class="stat-card secondary">
-                    <div class="stat-number">247</div>
-                    <div class="stat-label">Materiales Registrados</div>
-                </div>
-                <div class="stat-card warning">
-                    <div class="stat-number">12</div>
-                    <div class="stat-label">Alertas Pendientes</div>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <h2 class="card-title">
-                        <i class="fas fa-tachometer-alt"></i>
-                        Acciones Rápidas
-                    </h2>
-                </div>
+                <!-- Quick Actions -->
                 <div class="quick-actions">
-                    <div class="quick-action" data-action="nueva-obra">
-                        <i class="fas fa-plus-circle"></i>
-                        <h3>Nueva Obra</h3>
-                        <p>Registrar una nueva obra</p>
+                    <h2>Acciones Rápidas</h2>
+                    <div class="quick-actions-grid">
+                        <div class="quick-action" data-action="nueva-obra">
+                            <i class="fas fa-plus"></i>
+                            <span>Nueva Obra</span>
+                        </div>
+                        <div class="quick-action" data-action="agregar-material">
+                            <i class="fas fa-box"></i>
+                            <span>Agregar Material</span>
+                        </div>
+                        <div class="quick-action" data-action="consultar-ia">
+                            <i class="fas fa-robot"></i>
+                            <span>Consultar IA</span>
+                        </div>
+                        <div class="quick-action" data-action="cargar-archivo">
+                            <i class="fas fa-upload"></i>
+                            <span>Cargar Archivo</span>
+                        </div>
                     </div>
-                    <div class="quick-action" data-action="agregar-material">
-                        <i class="fas fa-box"></i>
-                        <h3>Agregar Material</h3>
-                        <p>Añadir nuevo material</p>
-                    </div>
-                    <div class="quick-action" data-action="consultar-ia">
-                        <i class="fas fa-robot"></i>
-                        <h3>Consultar IA</h3>
-                        <p>Obtener recomendaciones</p>
-                    </div>
-                    <div class="quick-action" data-action="cargar-archivo">
-                        <i class="fas fa-upload"></i>
-                        <h3>Cargar Archivo</h3>
-                        <p>Subir presupuesto/cronograma</p>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="recent-activity">
+                    <h2>Actividad Reciente</h2>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <i class="fas fa-building activity-icon"></i>
+                            <div class="activity-content">
+                                <p>Nueva obra registrada: Torre Norte</p>
+                                <span class="activity-time">Hace 2 horas</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <i class="fas fa-box activity-icon"></i>
+                            <div class="activity-content">
+                                <p>Material actualizado: Cemento Portland</p>
+                                <span class="activity-time">Hace 4 horas</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <i class="fas fa-file activity-icon"></i>
+                            <div class="activity-content">
+                                <p>Archivo cargado: presupuesto_mayo.xlsx</p>
+                                <span class="activity-time">Hace 6 horas</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -151,186 +148,211 @@
 
         <!-- Obras Tab -->
         <div id="obras" class="tab-content">
-            <div class="card">
-                <div class="card-header">
-                    <h2 class="card-title">
-                        <i class="fas fa-building"></i>
-                        Gestión de Obras
-                    </h2>
-                    <button class="btn btn-primary">
-                        <i class="fas fa-plus"></i>
-                        Nueva Obra
-                    </button>
-                </div>
-                
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label class="form-label">Código de Obra</label>
-                        <input type="text" class="form-input" placeholder="OB-001">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Nombre de la Obra</label>
-                        <input type="text" class="form-input" placeholder="Torre Residencial Central">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Objeto del Contrato</label>
-                        <input type="text" class="form-input" placeholder="Construcción edificio residencial">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Valor del Contrato</label>
-                        <input type="number" class="form-input" placeholder="500000000">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Duración (días)</label>
-                        <input type="number" class="form-input" placeholder="365">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Fecha de Inicio</label>
-                        <input type="date" class="form-input">
-                    </div>
-                </div>
+            <div class="section-header">
+                <h2>Gestión de Obras</h2>
+                <p>Administra todas las obras del proyecto</p>
+            </div>
 
-                <div class="table-container">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Código</th>
-                                <th>Nombre</th>
-                                <th>Valor</th>
-                                <th>Progreso</th>
-                                <th>Estado</th>
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>OB-001</td>
-                                <td>Torre Residencial Central</td>
-                                <td>$500,000,000</td>
-                                <td>
-                                    <div class="progress-bar">
-                                        <div class="progress-fill" style="width: 45%"></div>
-                                    </div>
-                                    45%
-                                </td>
-                                <td><span class="badge badge-success">Activa</span></td>
-                                <td>
-                                    <button class="btn btn-secondary">
-                                        <i class="fas fa-eye"></i>
-                                    </button>
-                                    <button class="btn btn-secondary">
-                                        <i class="fas fa-edit"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>OB-002</td>
-                                <td>Centro Comercial Norte</td>
-                                <td>$750,000,000</td>
-                                <td>
-                                    <div class="progress-bar">
-                                        <div class="progress-fill" style="width: 78%"></div>
-                                    </div>
-                                    78%
-                                </td>
-                                <td><span class="badge badge-success">Activa</span></td>
-                                <td>
-                                    <button class="btn btn-secondary">
-                                        <i class="fas fa-eye"></i>
-                                    </button>
-                                    <button class="btn btn-secondary">
-                                        <i class="fas fa-edit"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+            <!-- Obra Form -->
+            <div class="form-container">
+                <h3>Registrar Nueva Obra</h3>
+                <div class="form-grid">
+                    <input type="text" class="form-input" placeholder="Código de obra">
+                    <input type="text" class="form-input" placeholder="Nombre de la obra">
+                    <input type="text" class="form-input" placeholder="Objeto contractual">
+                    <input type="number" class="form-input" placeholder="Valor del contrato">
+                    <input type="number" class="form-input" placeholder="Duración (días)">
+                    <input type="date" class="form-input" placeholder="Fecha de inicio">
                 </div>
+                <button class="btn btn-primary">
+                    <i class="fas fa-plus"></i>
+                    Registrar Obra
+                </button>
+            </div>
+
+            <!-- Obras Table -->
+            <div class="table-container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                            <th>Valor</th>
+                            <th>Progreso</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>OB-001</td>
+                            <td>Torre Residencial Central</td>
+                            <td>$500,000,000</td>
+                            <td>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 45%"></div>
+                                </div>
+                                45%
+                            </td>
+                            <td><span class="badge badge-success">Activa</span></td>
+                            <td>
+                                <button class="btn btn-secondary">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="btn btn-secondary">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>OB-002</td>
+                            <td>Centro Comercial Norte</td>
+                            <td>$750,000,000</td>
+                            <td>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 78%"></div>
+                                </div>
+                                78%
+                            </td>
+                            <td><span class="badge badge-success">Activa</span></td>
+                            <td>
+                                <button class="btn btn-secondary">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="btn btn-secondary">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
 
         <!-- Materiales Tab -->
         <div id="materiales" class="tab-content">
-            <div class="card">
-                <div class="card-header">
-                    <h2 class="card-title">
-                        <i class="fas fa-boxes"></i>
-                        Gestión de Materiales
-                    </h2>
-                    <button class="btn btn-primary">
-                        <i class="fas fa-plus"></i>
-                        Nuevo Material
+            <div class="section-header">
+                <h2>Gestión de Materiales</h2>
+                <p>Control de inventario y materiales</p>
+            </div>
+
+            <!-- Material Form -->
+            <div class="form-container">
+                <h3>Registrar Nuevo Material</h3>
+                <div class="form-grid">
+                    <input type="text" class="form-input" placeholder="Código del material">
+                    <input type="text" class="form-input" placeholder="Nombre del material">
+                    <select class="form-input">
+                        <option>Seleccionar unidad</option>
+                        <option>kg</option>
+                        <option>m³</option>
+                        <option>unidad</option>
+                        <option>m²</option>
+                        <option>litro</option>
+                    </select>
+                    <input type="number" class="form-input" placeholder="Precio unitario">
+                </div>
+                <button class="btn btn-primary">
+                    <i class="fas fa-plus"></i>
+                    Registrar Material
+                </button>
+            </div>
+
+            <!-- Materiales Table -->
+            <div class="table-container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Material</th>
+                            <th>Unidad</th>
+                            <th>Precio</th>
+                            <th>Stock</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>MAT-001</td>
+                            <td>Cemento Portland</td>
+                            <td>kg</td>
+                            <td>$25,000</td>
+                            <td>500 kg</td>
+                            <td>
+                                <button class="btn btn-secondary">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn btn-secondary">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>MAT-002</td>
+                            <td>Varilla #4</td>
+                            <td>unidad</td>
+                            <td>$15,000</td>
+                            <td>200 unidad</td>
+                            <td>
+                                <button class="btn btn-secondary">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn btn-secondary">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Calendario Tab -->
+        <div id="calendario" class="tab-content">
+            <div class="section-header">
+                <h2>Calendario de Obras</h2>
+                <p>Programación y eventos importantes</p>
+            </div>
+
+            <!-- Calendar -->
+            <div class="calendar-container">
+                <div class="calendar-header">
+                    <button id="prevMonth" class="btn btn-secondary">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <h3 id="currentMonth">Junio 2025</h3>
+                    <button id="nextMonth" class="btn btn-secondary">
+                        <i class="fas fa-chevron-right"></i>
                     </button>
                 </div>
+                <div id="calendarGrid" class="calendar-grid"></div>
+            </div>
 
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label class="form-label">Código</label>
-                        <input type="text" class="form-input" placeholder="MAT-001">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Nombre del Material</label>
-                        <input type="text" class="form-input" placeholder="Cemento Portland">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Unidad de Medida</label>
-                        <select class="form-input">
-                            <option>Seleccionar unidad</option>
-                            <option>kg</option>
-                            <option>m³</option>
-                            <option>m²</option>
-                            <option>unidad</option>
-                            <option>litro</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Precio Unitario</label>
-                        <input type="number" class="form-input" placeholder="25000">
-                    </div>
-                </div>
-
+            <!-- Eventos próximos -->
+            <div class="upcoming-events">
+                <h3>Eventos Próximos</h3>
                 <div class="table-container">
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>Código</th>
-                                <th>Nombre</th>
-                                <th>Unidad</th>
-                                <th>Precio Unitario</th>
-                                <th>Stock</th>
-                                <th>Acciones</th>
+                                <th>Fecha</th>
+                                <th>Evento</th>
+                                <th>Obra</th>
+                                <th>Tipo</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>MAT-001</td>
-                                <td>Cemento Portland</td>
-                                <td>kg</td>
-                                <td>$25,000</td>
-                                <td>500 kg</td>
-                                <td>
-                                    <button class="btn btn-secondary">
-                                        <i class="fas fa-edit"></i>
-                                    </button>
-                                    <button class="btn btn-secondary">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                </td>
+                                <td>2025-06-12</td>
+                                <td>Entrega de materiales</td>
+                                <td>Torre Residencial</td>
+                                <td><span class="badge badge-success">Entrega</span></td>
                             </tr>
                             <tr>
-                                <td>MAT-002</td>
-                                <td>Varilla #4</td>
-                                <td>unidad</td>
-                                <td>$15,000</td>
-                                <td>200 und</td>
-                                <td>
-                                    <button class="btn btn-secondary">
-                                        <i class="fas fa-edit"></i>
-                                    </button>
-                                    <button class="btn btn-secondary">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                </td>
+                                <td>2025-06-15</td>
+                                <td>Revisión de calidad</td>
+                                <td>Centro Comercial</td>
+                                <td><span class="badge badge-warning">Inspección</span></td>
                             </tr>
                         </tbody>
                     </table>
@@ -338,215 +360,126 @@
             </div>
         </div>
 
-        <!-- Carga de Archivos Tab -->
+        <!-- Archivos Tab -->
         <div id="archivos" class="tab-content">
-            <div class="card">
-                <div class="card-header">
-                    <h2 class="card-title">
-                        <i class="fas fa-file-upload"></i>
-                        Carga de Archivos
-                    </h2>
-                </div>
+            <div class="section-header">
+                <h2>Gestión de Archivos</h2>
+                <p>Carga y gestiona documentos del proyecto</p>
+            </div>
 
-                <div class="form-grid">
-                    <div class="card">
-                        <h3>Presupuesto</h3>
-                        <div class="upload-area" id="presupuesto-upload">
-                            <i class="fas fa-file-excel upload-icon"></i>
-                            <p>Arrastra aquí tu archivo de presupuesto (Excel/PDF)</p>
-                            <p style="font-size: 0.875rem; color: var(--text-secondary);">
-                                o haz clic para seleccionar
-                            </p>
-                            <input type="file" id="presupuesto-file" style="display: none;" accept=".xlsx,.xls,.pdf">
-                        </div>
+            <!-- Upload Areas -->
+            <div class="upload-section">
+                <div class="upload-grid">
+                    <div class="upload-area" id="presupuesto-upload">
+                        <i class="fas fa-file-excel upload-icon"></i>
+                        <p>Cargar Presupuesto</p>
+                        <input type="file" accept=".xlsx,.xls" hidden>
                     </div>
-
-                    <div class="card">
-                        <h3>Programación de Actividades</h3>
-                        <div class="upload-area" id="programacion-upload">
-                            <i class="fas fa-file-alt upload-icon"></i>
-                            <p>Arrastra aquí tu cronograma (Excel/PDF)</p>
-                            <p style="font-size: 0.875rem; color: var(--text-secondary);">
-                                o haz clic para seleccionar
-                            </p>
-                            <input type="file" id="programacion-file" style="display: none;" accept=".xlsx,.xls,.pdf">
-                        </div>
+                    <div class="upload-area" id="programacion-upload">
+                        <i class="fas fa-calendar-alt upload-icon"></i>
+                        <p>Cargar Programación</p>
+                        <input type="file" accept=".xlsx,.xls,.pdf" hidden>
+                    </div>
+                    <div class="upload-area" id="general-upload">
+                        <i class="fas fa-file-alt upload-icon"></i>
+                        <p>Documento General</p>
+                        <input type="file" accept="*" hidden>
                     </div>
                 </div>
+            </div>
 
-                <div class="card">
-                    <h3>Archivos Cargados</h3>
-                    <div class="table-container">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Nombre del Archivo</th>
-                                    <th>Tipo</th>
-                                    <th>Fecha de Carga</th>
-                                    <th>Estado</th>
-                                    <th>Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>presupuesto_torre_central.xlsx</td>
-                                    <td>Presupuesto</td>
-                                    <td>2025-06-08</td>
-                                    <td><span class="badge badge-success">Procesado</span></td>
-                                    <td>
-                                        <button class="btn btn-secondary">
-                                            <i class="fas fa-download"></i>
-                                        </button>
-                                        <button class="btn btn-secondary">
-                                            <i class="fas fa-eye"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+            <!-- Files Table -->
+            <div class="table-container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Archivo</th>
+                            <th>Tipo</th>
+                            <th>Fecha</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>presupuesto_torre_central.xlsx</td>
+                            <td>Presupuesto</td>
+                            <td>2025-06-08</td>
+                            <td><span class="badge badge-success">Procesado</span></td>
+                            <td>
+                                <button class="btn btn-secondary">
+                                    <i class="fas fa-download"></i>
+                                </button>
+                                <button class="btn btn-secondary">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
 
         <!-- IA Tab -->
         <div id="ia" class="tab-content">
-            <div class="card">
-                <div class="card-header">
-                    <h2 class="card-title">
-                        <i class="fas fa-brain"></i>
-                        Asistente IA - Gemini
-                    </h2>
+            <div class="section-header">
+                <h2>Análisis con IA</h2>
+                <p>Asistente inteligente para optimización de obras</p>
+            </div>
+
+            <!-- AI Analysis Buttons -->
+            <div class="ai-analysis">
+                <div class="analysis-grid">
+                    <button class="btn btn-primary">
+                        <i class="fas fa-chart-line"></i>
+                        Análisis de Presupuesto
+                    </button>
+                    <button class="btn btn-primary">
+                        <i class="fas fa-truck"></i>
+                        Optimización Logística
+                    </button>
+                    <button class="btn btn-primary">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        Análisis de Riesgos
+                    </button>
+                    <button class="btn btn-primary">
+                        <i class="fas fa-clock"></i>
+                        Predicción de Tiempos
+                    </button>
                 </div>
+            </div>
 
-                <div class="form-grid">
-                    <div class="card">
-                        <h3>Análisis de Presupuesto</h3>
-                        <p>La IA analizará tu presupuesto y detectará posibles inconsistencias o mejoras.</p>
-                        <button class="btn btn-primary">
-                            <i class="fas fa-chart-line"></i>
-                            Analizar Presupuesto
-                        </button>
-                    </div>
-
-                    <div class="card">
-                        <h3>Asistente de Logística</h3>
-                        <p>Obtén recomendaciones sobre pedidos y gestión de materiales.</p>
-                        <button class="btn btn-success">
-                            <i class="fas fa-truck"></i>
-                            Consultar Logística
-                        </button>
-                    </div>
-
-                    <div class="card">
-                        <h3>Análisis de Riesgos</h3>
-                        <p>Identifica posibles riesgos en la programación de tu obra.</p>
-<button class="btn btn-warning">
-                            <i class="fas fa-exclamation-triangle"></i>
-                            Analizar Riesgos
-                        </button>
+            <!-- Chat IA -->
+            <div class="chat-container">
+                <div class="chat-header">
+                    <i class="fas fa-robot"></i>
+                    <span>Asistente IA</span>
+                </div>
+                <div id="chatMessages" class="chat-messages">
+                    <div class="message-bot">
+                        ¡Hola! Soy tu asistente de IA. ¿En qué puedo ayudarte hoy?
                     </div>
                 </div>
-
-                <div class="card">
-                    <h3>Chat con IA</h3>
-                    <div class="chat-container">
-                        <div class="chat-messages" id="chatMessages">
-                            <div style="padding: 1rem; text-align: center; color: var(--text-secondary);">
-                                ¡Hola! Soy tu asistente de IA. Puedo ayudarte con análisis de presupuestos, 
-                                recomendaciones de materiales, optimización de cronogramas y mucho más.
-                                ¿En qué puedo ayudarte hoy?
-                            </div>
-                        </div>
-                        <div class="chat-input-container">
-                            <input type="text" class="form-input chat-input" 
-                                   placeholder="Escribe tu consulta aquí..." 
-                                   id="chatInput">
-                            <button class="btn btn-primary" id="sendChat">
-                                <i class="fas fa-paper-plane"></i>
-                            </button>
-                        </div>
-                    </div>
+                <div class="chat-input">
+                    <input type="text" id="chatInput" placeholder="Escribe tu consulta...">
+                    <button id="sendChat" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
                 </div>
             </div>
         </div>
-
-        <!-- Calendario Tab -->
-        <div id="calendario" class="tab-content">
-            <div class="card">
-                <div class="card-header">
-                    <h2 class="card-title">
-                        <i class="fas fa-calendar"></i>
-                        Calendario de Obras
-                    </h2>
-                    <div>
-                        <button class="btn btn-secondary" id="prevMonth">
-                            <i class="fas fa-chevron-left"></i>
-                        </button>
-                        <span id="currentMonth" style="margin: 0 1rem; font-weight: bold;">
-                            Junio 2025
-                        </span>
-                        <button class="btn btn-secondary" id="nextMonth">
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="calendar-grid" id="calendarGrid">
-                    <!-- El calendario se generará dinámicamente con JavaScript -->
-                </div>
-
-                <div class="card" style="margin-top: 1.5rem;">
-                    <h3>Eventos Próximos</h3>
-                    <div class="table-container">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Fecha</th>
-                                    <th>Evento</th>
-                                    <th>Obra</th>
-                                    <th>Tipo</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>12 Jun 2025</td>
-                                    <td>Entrega de materiales</td>
-                                    <td>Torre Residencial</td>
-                                    <td><span class="badge badge-success">Entrega</span></td>
-                                </tr>
-                                <tr>
-                                    <td>15 Jun 2025</td>
-                                    <td>Revisión de calidad</td>
-                                    <td>Centro Comercial</td>
-                                    <td><span class="badge badge-warning">Inspección</span></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-            <div class="demo-container">
-        <h2>Demo - Sistema de Notificaciones</h2>
-        <div class="demo-actions">
-            <button class="btn btn-success" onclick="addNotification('success')">
-                <i class="fas fa-check"></i> Agregar Éxito
-            </button>
-            <button class="btn btn-warning" onclick="addNotification('warning')">
-                <i class="fas fa-exclamation-triangle"></i> Agregar Advertencia
-            </button>
-            <button class="btn btn-danger" onclick="addNotification('error')">
-                <i class="fas fa-times"></i> Agregar Error
-            </button>
-            <button class="btn btn-primary" onclick="addNotification('info')">
-                <i class="fas fa-info"></i> Agregar Info
-            </button>
-        </div>
-    </div>
     </main>
 
-    <script src="app.js">
-    </script>
+    <!-- JavaScript Files -->
+    <script src="js/main.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/quickActions.js"></script>
+    <script src="js/formObras.js"></script>
+    <script src="js/formMateriales.js"></script>
+    <script src="js/fileUpload.js"></script>
+    <script src="js/chatIA.js"></script>
+    <script src="js/calendario.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/notificaciones.js"></script>
 </body>
 </html>
