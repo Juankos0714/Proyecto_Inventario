@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Presupuesto de Obra</title>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #444;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #eee;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Subir Presupuesto de Obra (.xlsx)</h1>
+  <input type="file" id="input-excel" accept=".xlsx, .xls" />
+
+  <table id="presupuesto-table">
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Nombre</th>
+        <th>Unidad</th>
+        <th>Cantidad</th>
+        <th>Precio Unitario</th>
+        <th>Precio Total</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    document.getElementById('input-excel').addEventListener('change', handleFile, false);
+
+    function handleFile(event) {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+
+      reader.onload = function (e) {
+        const data = new Uint8Array(e.target.result);
+        const workbook = XLSX.read(data, { type: 'array' });
+
+        const firstSheetName = workbook.SheetNames[0];
+        const worksheet = workbook.Sheets[firstSheetName];
+        const jsonData = XLSX.utils.sheet_to_json(worksheet, { defval: "" });
+
+        renderTable(jsonData);
+      };
+
+      reader.readAsArrayBuffer(file);
+    }
+
+    function renderTable(data) {
+      const tbody = document.querySelector("#presupuesto-table tbody");
+      tbody.innerHTML = ""; // Limpiar tabla anterior
+
+      data.forEach((row, index) => {
+        const tr = document.createElement("tr");
+
+        // Puedes ajustar aquí según los encabezados reales del archivo Excel
+        tr.innerHTML = `
+          <td>${index + 1}</td>
+          <td>${row.Nombre || row.Item || ""}</td>
+          <td>${row.Unidad || ""}</td>
+          <td>${row.Cantidad || ""}</td>
+          <td>${row["Precio Unitario"] || ""}</td>
+          <td>${row["Precio Total"] || ""}</td>
+        `;
+
+        tbody.appendChild(tr);
+      });
+    }
+  </script>
+
+</body>
+</html>

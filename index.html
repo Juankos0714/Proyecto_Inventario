@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
 
     </style>
 </head>
+
 <body>
     <!-- Header -->
     <header class="header">
@@ -24,7 +26,7 @@
                         <i class="fas fa-bell"></i>
                         <div class="notification-count" id="notificationCount">3</div>
                     </div>
-                    
+
                     <!-- Panel de Notificaciones -->
                     <div class="notification-panel" id="notificationPanel">
                         <div class="notification-header">
@@ -38,7 +40,7 @@
                                 </button>
                             </div>
                         </div>
-                        
+
                         <div class="notification-filters">
                             <div class="filter-chip active" data-filter="all">Todas</div>
                             <div class="filter-chip" data-filter="unread">Sin leer</div>
@@ -46,17 +48,18 @@
                             <div class="filter-chip" data-filter="warning">Advertencias</div>
                             <div class="filter-chip" data-filter="error">Errores</div>
                         </div>
-                        
+
                         <div class="notification-list" id="notificationList">
                             <!-- Las notificaciones se cargarán aquí dinámicamente -->
                         </div>
-                        
+
                         <div class="notification-footer">
                             <button class="btn-link" id="viewHistory">Ver historial completo</button>
                         </div>
                     </div>
                 </div>
                 <i class="fas fa-user-circle" style="font-size: 1.5rem;"></i>
+                <button class="usuariosBtn" onclick="abrirModalUsuario()">Iniciar Sesion</button>
             </div>
         </div>
     </header>
@@ -162,7 +165,7 @@
                         Nueva Obra
                     </button>
                 </div>
-                
+
                 <div class="form-grid">
                     <div class="form-group">
                         <label class="form-label">Código de Obra</label>
@@ -441,7 +444,7 @@
                     <div class="card">
                         <h3>Análisis de Riesgos</h3>
                         <p>Identifica posibles riesgos en la programación de tu obra.</p>
-<button class="btn btn-warning">
+                        <button class="btn btn-warning">
                             <i class="fas fa-exclamation-triangle"></i>
                             Analizar Riesgos
                         </button>
@@ -453,15 +456,14 @@
                     <div class="chat-container">
                         <div class="chat-messages" id="chatMessages">
                             <div style="padding: 1rem; text-align: center; color: var(--text-secondary);">
-                                ¡Hola! Soy tu asistente de IA. Puedo ayudarte con análisis de presupuestos, 
+                                ¡Hola! Soy tu asistente de IA. Puedo ayudarte con análisis de presupuestos,
                                 recomendaciones de materiales, optimización de cronogramas y mucho más.
                                 ¿En qué puedo ayudarte hoy?
                             </div>
                         </div>
                         <div class="chat-input-container">
-                            <input type="text" class="form-input chat-input" 
-                                   placeholder="Escribe tu consulta aquí..." 
-                                   id="chatInput">
+                            <input type="text" class="form-input chat-input" placeholder="Escribe tu consulta aquí..."
+                                id="chatInput">
                             <button class="btn btn-primary" id="sendChat">
                                 <i class="fas fa-paper-plane"></i>
                             </button>
@@ -527,26 +529,42 @@
                 </div>
             </div>
         </div>
-            <div class="demo-container">
-        <h2>Demo - Sistema de Notificaciones</h2>
-        <div class="demo-actions">
-            <button class="btn btn-success" onclick="addNotification('success')">
-                <i class="fas fa-check"></i> Agregar Éxito
-            </button>
-            <button class="btn btn-warning" onclick="addNotification('warning')">
-                <i class="fas fa-exclamation-triangle"></i> Agregar Advertencia
-            </button>
-            <button class="btn btn-danger" onclick="addNotification('error')">
-                <i class="fas fa-times"></i> Agregar Error
-            </button>
-            <button class="btn btn-primary" onclick="addNotification('info')">
-                <i class="fas fa-info"></i> Agregar Info
-            </button>
+        <div class="demo-container">
+            <h2>Demo - Sistema de Notificaciones</h2>
+            <div class="demo-actions">
+                <button class="btn btn-success" onclick="addNotification('success')">
+                    <i class="fas fa-check"></i> Agregar Éxito
+                </button>
+                <button class="btn btn-warning" onclick="addNotification('warning')">
+                    <i class="fas fa-exclamation-triangle"></i> Agregar Advertencia
+                </button>
+                <button class="btn btn-danger" onclick="addNotification('error')">
+                    <i class="fas fa-times"></i> Agregar Error
+                </button>
+                <button class="btn btn-primary" onclick="addNotification('info')">
+                    <i class="fas fa-info"></i> Agregar Info
+                </button>
+            </div>
         </div>
-    </div>
+        <!-- Modal usuarios-->
+        <div id="modalUsr" class="modalUsuario">
+            <div class="modal-usuario-content">
+                <p class="titulo-modal">INICIO DE SESION</p>
+                <P>Usuario</P>
+                <input type="text" id="usuarioInput" placeholder="Ingrese su usuario">
+                <p>Contraseña</p>
+                <input type="text" id="passwordInput" placeholder="Ingrese su contraseña">
+                <div>
+                    <button class="btn btn-primary" onclick="iniciarSesion()">Iniciar Sesión</button>
+                    <button class="btn close-btn-modal" onclick="cerrarModalUsuario()">Cerrar</button>
+                </div>
+                
+            </div>
+        </div>
     </main>
 
     <script src="app.js">
     </script>
 </body>
+
 </html>

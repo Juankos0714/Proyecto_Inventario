@@ -1219,6 +1219,13 @@ function initializeApp() {
         console.error('Error inicializando la aplicación:', error);
     }
 }
+function abrirModalUsuario() {
+      document.getElementById('modalUsr').style.display = 'block';
+    }
+
+    function cerrarModalUsuario() {
+      document.getElementById('modalUsr').style.display = 'none';
+    }
 document.addEventListener('DOMContentLoaded', initializeApp);
 
 if (document.readyState === 'loading') {
