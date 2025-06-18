@@ -1,3 +1,22 @@
+document.addEventListener('DOMContentLoaded', initializeApp);
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeApp);
+} else {
+    initializeApp();
+}
+function registrar(){
+    const usuarioInput = document.getElementById('usuarioIn').value;
+    const passwordInput = document.getElementById('passwordIn').value;
+    const emailInput = document.getElementById('emailIn').value;
+
+
+
+localStorage.setItem('username', usuarioInput)
+localStorage.setItem('password', passwordInput)
+localStorage.setItem('email', emailInput)
+}
+
 function iniciarSesion() {
     const usuarioInput = document.getElementById('usuarioInput');
     const passwordInput = document.getElementById('passwordInput');
@@ -5,8 +24,8 @@ function iniciarSesion() {
     const usuario = usuarioInput.value.trim();
     const password = passwordInput.value.trim();
 
-    const USERNAME = 'admin';
-    const PASSWORD = 'password';
+    const USERNAME = localStorage.getItem("username");
+    const PASSWORD = localStorage.getItem("password");
 
     if (usuario === USERNAME && password === PASSWORD) {
         if (window.notificationSystem) {
@@ -1249,7 +1268,7 @@ function initializeApp() {
             window.notificationSystem = new NotificationSystem();
         }
         
-        if (!window.dataManager) {
+        if (!window.dataManager) {  
             window.dataManager = new DataManager();
         }
 
@@ -1267,10 +1286,10 @@ function abrirModalUsuario() {
     function cerrarModalUsuario() {
       document.getElementById('modalUsr').style.display = 'none';
     }
-document.addEventListener('DOMContentLoaded', initializeApp);
+function abrirModalReg() {
+      document.getElementById('modalReg').style.display = 'block';
+    }
 
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initializeApp);
-} else {
-    initializeApp();
-}
+    function cerrarModalReg() {
+      document.getElementById('modalReg').style.display = 'none';
+    }
