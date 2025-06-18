@@ -60,6 +60,7 @@
                 </div>
                 <i class="fas fa-user-circle" style="font-size: 1.5rem;"></i>
                 <button class="usuariosBtn" onclick="abrirModalUsuario()">Iniciar Sesion</button>
+                <button class="usuariosBtn" onclick="abrirModalReg()">Registrarse</button>
             </div>
         </div>
     </header>
@@ -556,6 +557,22 @@
                 <input type="password" id="passwordInput" placeholder="Ingrese su contraseña">
                 <div>
                     <button class="btn btn-primary" onclick="iniciarSesion()">Iniciar Sesión</button>
+                    <button class="btn close-btn-modal" onclick="cerrarModalUsuario()">Cerrar</button>
+                </div>
+                
+            </div>
+        </div>
+                <div id="modalReg" class="modalUsuario">
+            <div class="modal-usuario-content">
+                <p class="titulo-modal">Registrarse</p>
+                <p>Email</p>
+                <input type="email" id="emailIn" placeholder="Ingrese su email">
+                <P>Usuario</P>
+                <input type="text" id="usuarioIn" placeholder="Ingrese su usuario">
+                <p>Contraseña</p>
+                <input type="password" id="passwordIn" placeholder="Ingrese su contraseña">
+                <div>
+                    <button class="btn btn-primary" onclick="registrar()">Registrarse</button>
                     <button class="btn close-btn-modal" onclick="cerrarModalUsuario()">Cerrar</button>
                 </div>
                 
